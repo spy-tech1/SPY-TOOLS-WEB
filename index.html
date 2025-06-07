@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matrix Dashboard</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      background: black;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    header, footer {
+      position: fixed;
+      width: 100%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 0;
+      color: #0f0;
+      z-index: 2;
+      text-shadow: 0 0 10px #0f0;
+    }
+
+    header {
+      top: 0;
+    }
+
+    footer {
+      bottom: 0;
+      font-size: 14px;
+    }
+
+    .dashboard {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 20px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .dashboard h1 {
+      color: #0f0;
+      text-shadow: 0 0 10px #0f0;
+    }
+
+    .button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      color: #0f0;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #0f0, 0 0 40px #0f0;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<header>WELCOME TO &lt;SPY TOOLs&gt;</header>
+
+<div class="dashboard">
+  <h3>OUR TOOLS</h3>
+  <a class="button" href="https://whatsapp.com/channel/0029Vb0vMybHwXb8onxGxd1g" target="_blank">WhatsApp Channel</a>
+  <a class="button" href="https://chat.whatsapp.com/BSgy9ZOLxZP3cDLl1Gooo1" target="_blank">WhatsApp Group</a>
+  <a class="button" href="https://whatsapp.com/channel/0029Vb77XV09Bb66Pba7eB1T" target="_blank">AppStore Channel</a>
+  <a class="button" href="https://chat.whatsapp.com/LyBgoR9MDp3CSXSJxTrfUv" target="_blank">AppStore Group</a>
+  <a class="button" href="https://youtu.be/HmybIJsvR84?si=7dngk-HW7HTfauN7" target="_blank">Facebook Hack</a>
+  <a class="button" href="https://youtu.be/7FjgTD-tgjE?si=tpCjWSxdX-1QGt_j" target="_blank">Instagram Hack</a>
+    <a class="button" href="https://youtu.be/LvobsrggBnM?si=BpXNTQGGd_i4OPJb" target="_blank">TikTok Hack</a>
+  <a class="button" href="https://youtu.be/stinX83At3Q?si=nxrEkONqJtoFRpu0" target="_blank">SMS Hack</a>
+  <a class="button" href="https://youtu.be/T9SKbWlAkx4?si=Lnxf6A2xC-1obDqE" target="_blank">Gallery Hack</a>
+    <a class="button" href="t.me/qii7cbot" target="_blank">All Acc Phishing</a>
+  <a class="button" href="https://t.me/MULTI_USASES_BOT" target="_blank">Best TG Bot</a>
+  <a class="button" href="https://www.mediafire.com/file/jivlbcwfoy7ayb7/Whatsapp+Hack_1.2.apk/file" target="_blank">WhatsApp Hack (Sim/Prank)</a>
+    <a class="button" href="https://onepage.website" target="_blank">Create Own Website</a>
+      <a class="button" href="https://mega.nz/file/XF5XUY4b#D3FIaSPnAK8b6ZoObbmoFFc8t4LEBtNgT3NSUpH427U" target="_blank">Create Own TG Bot</a>
+        <a class="button" href="https://www.aixploria.com/en/free-ai" target="_blank">All in 1 AIs</a>
+          <a class="button" href="https://drive.google.com/drive/folders/1FGIu4mPvfcyPnh854gp-o2mKRdvGij0k" target="_blank">Zphisher in Termux</a>
+            <a class="button" href="https://wa.me/+233531712470" target="_blank">Owner</a>
+</div>
+
+<footer>Developed by &lt;King Kelly&gt; • All rights reserved • 2025©</footer>
+
+<script>
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+
+  const letters = "01";
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = [];
+
+  for (let x = 0; x < columns; x++) drops[x] = 1;
+
+  function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#0F0";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters.charAt(Math.floor(Math.random() * letters.length));
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+        drops[i] = 0;
+
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 33);
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
+</body>
+</html>
